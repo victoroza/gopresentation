@@ -16,11 +16,11 @@ type Comp struct {
 	Year int
 	Url string
 }
-func count(name, url string) {
+func count(name, url string, c chan<- string) {
 	start := time.Now()
 	r, err := http.Get(url)
 	if err != nil {
-		fmt.Printf("%s: %s", name, err)
+		c <- fmt.Sprintf("%s: %s\n", name, err)
 		return
 	}
 	n, _ := io.Copy(ioutil.Discard, r.Body)
