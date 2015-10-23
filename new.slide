@@ -1,0 +1,57 @@
+Uses of Go
+23 Oct 2015
+Tags: go golang 
+
+Victor Oza, Corey Hom, Michael McInerney
+
+* Why is this presentation different?
+
+.image ./go.png
+
+- Coded in Go
+- Quick and easy way to make a presentation
+- Lines of code are just the lines of the slides
+- Can put images, links, and code into the slides
+
+* Hello World in Go
+
+.play hello.go
+
+* Printing example with types
+
+.play printStruct.go
+
+- %v normal string representation
+- %+v normal with struct names
+- %#v actual go syntax
+
+* String to JSON representation
+
+.play struct=json-xml.go /START OMIT/,/END OMIT/
+
+- Great for web services
+- Can easily reprsent an object to a json
+- What else can we do with this?
+
+* String to XML representation
+
+.play structXml.go /START OMIT/,/END OMIT/
+
+- Many different types of encodings are available
+- hex, json, xml, csv, binary, etc
+
+* Another slide
+
+- Test
+
+* Json from file
+
+.play jsonFiletoStruct.go /START OMIT/,/END OMIT/
+
+* Web Crawl
+
+.play webcrawl.go /START OMIT/,/END OMIT/
+
+* Web Crawl Concurrent
+
+.play webcrawlCon.go /START OMIT/,/END OMIT/
