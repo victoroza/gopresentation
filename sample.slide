@@ -40,6 +40,10 @@ Victor Oza, Corey Hom, Michael McInerney
 - Many different types of encodings are available
 - hex, json, xml, csv, binary, etc
 
+* Another slide
+
+- Test
+
 * Json from file
 
 .play jsonFiletoStruct.go /START OMIT/,/END OMIT/
@@ -47,7 +51,3 @@ Victor Oza, Corey Hom, Michael McInerney
 * Web Crawl
 
 .play webcrawl.go /START OMIT/,/END OMIT/
-
-* Another slide
-
-- Test
