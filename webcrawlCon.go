@@ -25,7 +25,8 @@ func count(name, url string, c chan<- string) {
 	}
 	n, _ := io.Copy(ioutil.Discard, r.Body)
 	r.Body.Close()
-	fmt.Printf("%s %d [%.2fs]\n", name, n, time.Since(start).Seconds())
+	dt := time.Since(start).Seconds()
+	c <- fmt.Sprintf("%s %d [%.2fs]\n", name, n, dt)
 }
 func do(f func(Comp)) {
 	input, err := os.Open("companies.article")
@@ -50,9 +51,15 @@ func do(f func(Comp)) {
 // START OMIT
 func main() {
 	start := time.Now()
+	c := make(chan string)
+	n := 0
 	do(func(comp Comp){
-		count(comp.Name, comp.Url)
+		n++
+		go count(comp.Name, comp.Url, c)
 	})
+	for i := 0; i < n; i++ {
+		fmt.Print(<-c)
+	}
 	fmt.Printf("%.2fs total \n", time.Since(start).Seconds())
 }
 
