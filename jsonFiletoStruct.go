@@ -14,7 +14,7 @@ type Comp struct {
 }
 // START OMIT
 func main() {
-	input, err := os.Open("companies.json")
+	input, err := os.Open("companies.article")
 	if err != nil {
 		log.Fatal(err)
 	}

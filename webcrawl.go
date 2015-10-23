@@ -28,7 +28,7 @@ func count(name, url string) {
 	fmt.Printf("%s %d [%.2fs]\n", name, n, time.Since(start).Seconds())
 }
 func do(f func(Comp)) {
-	input, err := os.Open("companies.json")
+	input, err := os.Open("companies.article")
 	if err != nil {
 		log.Fatal(err)
 	}
