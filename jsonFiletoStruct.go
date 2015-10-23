@@ -6,15 +6,20 @@ import (
 	"io"
 	"os"
 	"log"
+	"io/ioutil"
+	// "bufio"
 )
 type Comp struct {
 	Name string
 	Year int
 	URL string
 }
-// START OMIT
 func main() {
-	input, err := os.Open("companies.article")
+	
+	d1 := []byte("{\"Name\": \"Google\", \"Year\": 1998, \"URL\": \"http://google.com/\"}\n{\"Name\": \"Facebook\", \"Year\": 2004, \"URL\": \"http://facebook.com/\"}\n{\"Name\": \"Apple\", \"Year\": 1976, \"URL\": \"http://apple.com/\"}\n{\"Name\": \"Microsoft\", \"Year\": 1975, \"URL\": \"http://microsoft.com/\"}")//, 
+	err := ioutil.WriteFile("test.json", d1, 0644)
+	// START OMIT
+	input, err := os.Open("test.json")
 	if err != nil {
 		log.Fatal(err)
 	}
